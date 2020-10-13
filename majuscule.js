@@ -1,15 +1,32 @@
-var string;
-var phrase = "";
-function majuscule(string) {
-    for (var i = 0; i < string.length ; i++) {
-       var phrase = string.charAt(i);
-       if (phrase.charAt(i-1) == phrase.toUpperCase()) {
-           phrase.charAt(i).toLowerCase();
-       } else (phraseCharAt(i) == phrase.toLowerCase()) {
-           phrase.CharAt(i+1).toUpperCase;
-       }
 
+var mot = process.argv[2];
+var phrase = ""; 
+let etat= true;
+
+    for (var i=0; i <= mot.length-1 ; i++) {
+        if (mot.charAt(i) == " ") {
+            phrase += mot.charAt(i);
+           etat = !etat;
+           
+        } else { 
+           
+            if (etat == true) { 
+            if (i%2 == 0) {
+                phrase += mot.charAt(i).toUpperCase(); 
+            } else {
+                phrase += mot.charAt(i).toLowerCase();
+            }
+            } else { 
+                if (i%2 == 0) {
+                    phrase += mot.charAt(i).toLowerCase();
+                } else {
+                    phrase += mot.charAt(i).toUpperCase();
+                }
+
+            }
+        }
     }
-}
 
-majuscule("Salut tout le monde!");
+    console.log(phrase);
+
+
